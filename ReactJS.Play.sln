@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactJS.Play.Core", "ReactJS.Play.Core\ReactJS.Play.Core.csproj", "{F8242498-DF8F-4DA4-A36F-BA08DC95B696}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactJS.Play.Frontend", "ReactJS.Play.Frontend\ReactJS.Play.Frontend.csproj", "{6CD3B6F3-144B-4906-9179-F0039389900C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactJS.Play.Utils", "ReactJS.Play.Utils\ReactJS.Play.Utils.csproj", "{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Debug|x64.Build.0 = Debug|Any CPU
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Debug|x86.Build.0 = Debug|Any CPU
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Release|x64.ActiveCfg = Release|Any CPU
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Release|x64.Build.0 = Release|Any CPU
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Release|x86.ActiveCfg = Release|Any CPU
+		{F8242498-DF8F-4DA4-A36F-BA08DC95B696}.Release|x86.Build.0 = Release|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Debug|x64.Build.0 = Debug|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Debug|x86.Build.0 = Debug|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Release|x64.ActiveCfg = Release|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Release|x64.Build.0 = Release|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Release|x86.ActiveCfg = Release|Any CPU
+		{6CD3B6F3-144B-4906-9179-F0039389900C}.Release|x86.Build.0 = Release|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Debug|x64.Build.0 = Debug|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Debug|x86.Build.0 = Debug|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Release|x64.ActiveCfg = Release|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Release|x64.Build.0 = Release|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Release|x86.ActiveCfg = Release|Any CPU
+		{BB6C0032-99D9-42C0-9FC5-97E1F5E0FFE5}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
