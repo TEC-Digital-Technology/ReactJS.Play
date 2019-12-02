@@ -28,6 +28,7 @@ namespace ReactJS.Play.Frontend.Messaging
                 resultCodeSettingCollection[ResultCodeSettingEnum.InvalidRange] = "無效的參數區間";
                 resultCodeSettingCollection[ResultCodeSettingEnum.ItemRequired] = "必須要有至少一個元素";
                 resultCodeSettingCollection[ResultCodeSettingEnum.Success] = "成功";
+                resultCodeSettingCollection[ResultCodeSettingEnum.InvalidAccountOrPassword] = "帳號或密碼錯誤";
                 resultCodeSettingCollection[ResultCodeSettingEnum.SystemError] = "系統發生未預期的錯誤";
                 resultCodeSettingCollection[ResultCodeSettingEnum.UnrecognizedLanguage] = "無效的語系";
                 return new CachedValueConfig<ResultCodeSettingCollection<ResultCodeSettingEnum>>(resultCodeSettingCollection, new MemoryCacheEntryOptions()

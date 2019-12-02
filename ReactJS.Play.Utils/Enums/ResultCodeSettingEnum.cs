@@ -42,6 +42,13 @@ namespace ReactJS.Play.Utils.Enums
         [EnumDescription("1002")]
         ItemRequired,
         #endregion
+        #region 帳號(2000-28FF)
+        /// <summary>
+        /// 帳號或密碼錯誤
+        /// </summary>
+        [EnumDescription("2000")]
+        InvalidAccountOrPassword,
+        #endregion
         /// <summary>
         /// 系統錯誤
         /// </summary>
