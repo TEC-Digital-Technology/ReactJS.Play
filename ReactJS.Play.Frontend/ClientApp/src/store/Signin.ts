@@ -2,6 +2,7 @@ import { Action, Reducer } from 'redux';
 import { AppThunkAction } from './';
 import { SigninRequest } from './Request/API002Account/SigninRequest';
 import { SigninResponse } from './Response/API002Account/SigninResponse';
+import * as Account from './Account';
 
 // -----------------
 // STATE - This defines the type of data maintained in the Redux store.
@@ -16,7 +17,7 @@ export interface SigninState {
 
 // Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
 // declared type strings (and not any other arbitrary string).
-type KnownAction = SigninRequest | SigninResponse;
+type KnownAction = SigninRequest | SigninResponse | Account.UpdateAccountInfo;
 
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
@@ -38,7 +39,8 @@ export const actionCreators = {
             });
             const responseJson = response.json() as Promise<SigninResponse>;
             await responseJson.then(data => {
-                dispatch({ type: 'RESPONSE_ACCOUNT_SIGNIN', resultCode: data.resultCode, resultMessage: data.resultMessage });
+                dispatch({ type: 'RESPONSE_ACCOUNT_SIGNIN', resultCode: data.resultCode, resultMessage: data.resultMessage, accessToken: data.accessToken });
+                dispatch({ type: 'UPDATE_ACCOUNT_INFO', accessToken: data.accessToken });
             });
         }
         //Asynchornized Version

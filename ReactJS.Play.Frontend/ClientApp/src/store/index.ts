@@ -1,6 +1,7 @@
 import * as WeatherForecasts from './WeatherForecasts';
 import * as Counter from './Counter';
 import * as Signin from './Signin';
+import * as Account from './Account'
 import { reducer as formReducer, FormStateMap } from 'redux-form'
 
 
@@ -9,6 +10,7 @@ export interface ApplicationState {
     counter: Counter.CounterState | undefined;
     weatherForecasts: WeatherForecasts.WeatherForecastsState | undefined;
     signin: Signin.SigninState | undefined;
+    account: Account.CurrentAccountInfo | undefined;
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property using
@@ -18,6 +20,7 @@ export const reducers = {
     counter: Counter.reducer,
     weatherForecasts: WeatherForecasts.reducer,
     signin: Signin.reducer,
+    account: Account.reducer,
     form: formReducer
 };
 

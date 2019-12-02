@@ -17,8 +17,15 @@ namespace ReactJS.Play.Frontend.Controllers
         [HttpPost]
         public SigninResponse Signin(SigninRequest signinRequest)
         {
-            System.Threading.Thread.Sleep(3000);
-            return new SigninResponse();
+            System.Threading.Thread.Sleep(1500);
+            if (signinRequest.Account != "admin" || signinRequest.Password != "admin")
+            {
+                throw new OperationFailedException(Utils.Enums.ResultCodeSettingEnum.InvalidAccountOrPassword);
+            }
+            return new SigninResponse()
+            {
+                AccessToken = Guid.NewGuid().ToString()
+            };
         }
     }
 }
