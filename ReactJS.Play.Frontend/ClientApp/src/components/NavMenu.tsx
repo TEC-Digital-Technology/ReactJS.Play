@@ -23,7 +23,7 @@ class NavMenu extends React.PureComponent<NavProps, { isOpen: boolean }> {
             <header>
                 <Navbar className="navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" light>
                     <Container>
-                        <NavbarBrand tag={Link} to="/">ReactJS.Play.Frontend {this.props.isAuthenticated ? "Loggin In" : "Anonymous"}</NavbarBrand>
+                        <NavbarBrand tag={Link} to="/">ReactJS.Play.Frontend ({this.props.isAuthenticated ? "Loggin In" : "Anonymous"})</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} className="mr-2" />
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={this.state.isOpen} navbar>
                             <ul className="navbar-nav flex-grow">
