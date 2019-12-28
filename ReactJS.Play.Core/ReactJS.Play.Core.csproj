@@ -6,9 +6,9 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="TEC_Core_Scheduler_Standard_Library" Version="1.0.2" />
+    <PackageReference Include="TEC_Core_Scheduler_Standard_Library" Version="1.0.3" />
     <PackageReference Include="TEC_Core_Standard_Library" Version="1.0.4" />
-    <PackageReference Include="TEC_Core_Web_WebApi_Standard_Library" Version="1.0.4" />
+    <PackageReference Include="TEC_Core_Web_WebApi_Standard_Library" Version="1.0.6" />
   </ItemGroup>
 
   <PropertyGroup>
