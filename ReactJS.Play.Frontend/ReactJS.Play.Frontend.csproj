@@ -18,9 +18,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="TEC_Core_DataAnnotations_Standard_Library" Version="1.0.2" />
     <PackageReference Include="TEC_Core_Web_WebApi_Standard_Library" Version="1.0.6" />
+    <PackageReference Include="TEC_Logging_Log4Net_Standard_Library" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +33,10 @@
   <ItemGroup>
     <ProjectReference Include="..\ReactJS.Play.Core\ReactJS.Play.Core.csproj" />
     <ProjectReference Include="..\ReactJS.Play.Utils\ReactJS.Play.Utils.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logging\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

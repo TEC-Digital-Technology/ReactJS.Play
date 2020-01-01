@@ -14,6 +14,10 @@ using System;
 using TEC.Core.Web.Builder;
 using TEC.Core.Web.Logging.Filters;
 using TEC.Core.Web.WebApi.Builder;
+using ReactJS.Play.Core.Logging;
+using TEC.Core.Web.Logging;
+using ReactJS.Play.Core.Extensions;
+using TEC.Logging.Log4Net.Builder;
 
 namespace ReactJS.Play.Frontend
 {
@@ -34,21 +38,76 @@ namespace ReactJS.Play.Frontend
             });
             services.AddSingleton(typeof(Microsoft.Extensions.Caching.Memory.MemoryCache), memoryCache);
             services
+            .AddLog4NetLoggingConfiguration<LoggingScope, LoggingSystemScope, LoggingMessageType, LogState>(LoggingScope.FrontEnd,options=>
+            {
+                options.LoggerRepositoryCreated = (repo) =>
+                 {
+                     
+                 };
+            })
             .AddRequestResponseLoggingOption(options =>
             {
                 //建議由另一個類別管理紀錄封裝
-                options.LogAspNetActionExeutingAction = (loggerFactory, data) =>
+                options.LogAspNetActionExecutingAction = (loggerFactory, data) =>
                 {
-                    loggerFactory.CreateLogger("Request")
-                        .LogDebug("[{0}]執行請求{1}，內容：{2}", data.ActivityId, data.Method, data.ActionArguments);
+                    loggerFactory.Log(new LogState()
+                    {
+                        ActivityId = data.ActivityId,
+                        ExtendProperties = data.ActionArguments,
+                        Exception = null,
+                        IPAddress = data.IPAddress,
+                        LoggingTriggerType = data.LoggingTriggerType ?? LoggingTriggerType.User,
+                        LogLevel = LogLevel.Debug,
+                        Message = $"執行請求-{data.ActionDisplayName}",
+                        MessageType = LoggingMessageType.WebApiRequest,
+                        Resource = data.ActionDisplayName,
+                        Scope = LoggingScope.FrontEnd,
+                        SystemScope = LoggingSystemScope.Local,
+                        TriggerReferenceId = data.TriggerReferenceID
+                    });
                 };
-                options.LogAspNetActionExeutedAction = (loggerFactory, data) =>
+                //建議由另一個類別管理紀錄封裝
+                options.LogAspNetActionExecutedAction = (loggerFactory, data) =>
                 {
-                    loggerFactory.CreateLogger("Response").LogDebug("[{0}]回應{1}", data.ActivityId, data.ResponseBodyString);
+                    loggerFactory.Log(new LogState
+                    {
+                        ActivityId = data.ActivityId,
+                        ExtendProperties = data.ResponseBodyString,
+                        Exception = null,
+                        IPAddress = data.IPAddress,
+                        LoggingTriggerType = data.LoggingTriggerType ?? LoggingTriggerType.User,
+                        LogLevel = LogLevel.Debug,
+                        Message = "回應請求",
+                        MessageType = LoggingMessageType.WebApiResponse,
+                        Resource = String.Empty,
+                        Scope = LoggingScope.FrontEnd,
+                        SystemScope = LoggingSystemScope.Local,
+                        TriggerReferenceId = data.TriggerReferenceID
+                    });
+                };
+                //建議由另一個類別管理紀錄封裝
+                options.LogAspNetActionExeceptionAction = (loggerFactory, data) =>
+                {
+                    loggerFactory.Log(new LogState
+                    {
+                        ActivityId = data.ActivityId,
+                        ExtendProperties = data.ResponseBodyString,
+                        Exception = data.Exception,
+                        IPAddress = data.IPAddress,
+                        LoggingTriggerType = data.LoggingTriggerType ?? LoggingTriggerType.User,
+                        LogLevel = LogLevel.Debug,
+                        Message = $"執行發生錯誤-{data.Exception.GetType().Name}",
+                        MessageType = LoggingMessageType.WebApiResponse,
+                        Resource = String.Empty,
+                        Scope = LoggingScope.FrontEnd,
+                        SystemScope = LoggingSystemScope.Local,
+                        TriggerReferenceId = data.TriggerReferenceID
+                    });
                 };
             })
             .AddControllersWithViews(options =>
             {
+                options.Filters.Add(typeof(LogExceptionFilter));
                 options.Filters.Add(typeof(LogRequestFilter));
                 options.Filters.Add(typeof(LogResponseFilter));
             })
@@ -71,8 +130,10 @@ namespace ReactJS.Play.Frontend
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider svp)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider svp, ILoggerFactory factory)
         {
+            #region Logger
+            #endregion
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -92,12 +153,40 @@ namespace ReactJS.Play.Frontend
                 //建議由另一個類別管理紀錄封裝
                 options.RequestParsedAction = (loggerFactory, data) =>
                 {
-                    loggerFactory.CreateLogger("Request")
-                     .LogDebug("[{0}]接收請求{1}，內容：{2}", data.ActivityId, data.Path, data.BodyString);
+                    loggerFactory.Log(new LogState()
+                    {
+                        ActivityId = data.ActivityId,
+                        ExtendProperties = data.BodyString,
+                        Exception = null,
+                        IPAddress = data.IPAddress,
+                        LoggingTriggerType = data.LoggingTriggerType ?? LoggingTriggerType.User,
+                        LogLevel = LogLevel.Debug,
+                        Message = "接收請求",
+                        MessageType = LoggingMessageType.WebApiResponse,
+                        Resource = data.Path,
+                        Scope = LoggingScope.FrontEnd,
+                        SystemScope = LoggingSystemScope.Local,
+                        TriggerReferenceId = data.TriggerReferenceID
+                    });
                 };
+                //建議由另一個類別管理紀錄封裝
                 options.ResponseParsedAction = (loggerFactory, data) =>
                 {
-                    loggerFactory.CreateLogger("Response").LogDebug("[{0}]回應{1}", data.ActivityId, data.BodyString);
+                    loggerFactory.Log(new LogState()
+                    {
+                        ActivityId = data.ActivityId,
+                        ExtendProperties = data.BodyString,
+                        Exception = null,
+                        IPAddress = data.IPAddress,
+                        LoggingTriggerType = data.LoggingTriggerType ?? LoggingTriggerType.User,
+                        LogLevel = LogLevel.Debug,
+                        Message = "回應請求",
+                        MessageType = LoggingMessageType.WebApiResponse,
+                        Resource = String.Empty,
+                        Scope = LoggingScope.FrontEnd,
+                        SystemScope = LoggingSystemScope.Local,
+                        TriggerReferenceId = data.TriggerReferenceID
+                    });
                 };
             });
             string apiRouteTemplate = "{controller}/{action=Index}/{id?}";
